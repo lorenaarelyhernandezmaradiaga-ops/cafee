@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafetería Escolar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CAFETERÍA ESCOLAR</h1>
+        
+        <!-- Formulario de Pedidos -->
+        <form id="orderForm">
+            <label for="client">Cliente:</label>
+            <input type="text" id="client" required>
+
+            <label for="product">Producto:</label>
+            <select id="product" required>
+                <!-- Opciones cargadas dinámicamente -->
+            </select>
+
+            <label for="quantity">Cantidad:</label>
+            <input type="number" id="quantity" min="1" required>
+
+            <label id="paymentLabel">Método de pago:</label>
+            <div class="payment-options">
+                <input type="radio" id="cash" name="payment" value="Efectivo" checked>
+                <label for="cash">Efectivo</label>
+                
+                <input type="radio" id="card" name="payment" value="Tarjeta">
+                <label for="card">Tarjeta</label>
+            </div>
+
+            <button type="submit">REALIZAR PEDIDO</button>
+        </form>
+
+        <!-- Mensaje de confirmación -->
+        <div id="confirmation" class="confirmation hidden">
+            <h2>PEDIDO REGISTRADO</h2>
+            <p id="orderDetails"></p>
+        </div>
+
+        <!-- Botón para cargar pedidos -->
+        <button id="loadOrders" class="load-btn">CARGAR PEDIDOS.TXT</button>
+        <div id="ordersTable" class="table-container hidden">
+            <h2>PEDIDOS REGISTRADOS</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Cliente</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersBody"></tbody>
+            </table>
+            <div id="salesSummary" class="summary"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
